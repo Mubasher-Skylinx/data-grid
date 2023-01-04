@@ -1,29 +1,12 @@
-import React from "react";
-import data from "./data/data";
-import DataGridContainer from "./components/DataGridContainer";
+import React, { useState } from "react";
+import CustomTable from "./components/customTable/CustomTable";
+import BasicExample from "./components/tanTables/Basic-Example";
 
 function App() {
-    const headersToInclude = [
-        // "id",
-        "name",
-        "email",
-        "phone",
-        "url",
-        "group",
-        "address",
-        "zip",
-        "city",
-        "state",
-    ];
-
-    // const headers = Object.keys(data[0]).filter();
     return (
         <section className="app-container">
-            <DataGridContainer
-                // columns={headers}
-                columns={headersToInclude}
-                rows={data}
-            />
+            <BasicExample />
+            {/* <CustomTable /> */}
         </section>
     );
 }
