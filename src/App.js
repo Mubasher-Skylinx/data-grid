@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import data from "./data/data";
+import DataGridContainer from "./components/DataGridContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const headersToInclude = [
+        // "id",
+        "name",
+        "email",
+        "phone",
+        "url",
+        "group",
+        "address",
+        "zip",
+        "city",
+        "state",
+    ];
+
+    // const headers = Object.keys(data[0]).filter();
+    return (
+        <section>
+            <DataGridContainer
+                // columns={headers}
+                columns={headersToInclude}
+                rows={data}
+            />
+        </section>
+    );
 }
 
 export default App;
