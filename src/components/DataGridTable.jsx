@@ -1,36 +1,35 @@
 import React from "react";
+import "./dataGridTable.css";
 
 function DataGridTable(props) {
     const { columns, rows, nullValue } = props;
 
     return (
-        <table className="table shadow-soft mapData-tabular--table">
-            <thead>
-                <tr>
-                    {columns.map((col) => {
-                        return <th key={col}>{col}</th>;
-                    })}
-                </tr>
-            </thead>
+        <section className="table">
+            <section className="table-header">
+                {columns.map((col) => {
+                    return <h4 key={col}>{col}</h4>;
+                })}
+            </section>
 
-            <tbody>
+            <section className="table-body">
                 {rows?.map((data, i) => {
                     return (
-                        <tr key={data.id}>
-                            <td>{data?.name || nullValue || "---"}</td>
-                            <td>{data?.email || nullValue || "---"}</td>
-                            <td>{data?.phone || nullValue || "---"}</td>
-                            <td>{data?.url || nullValue || "---"}</td>
-                            <td>{data?.group || nullValue || "---"}</td>
-                            <td>{data?.address || nullValue || "---"}</td>
-                            <td>{data?.zip || nullValue || "---"}</td>
-                            <td>{data?.city || nullValue || "---"}</td>
-                            <td>{data?.state || nullValue || "---"}</td>
-                        </tr>
+                        <article className="table-row" key={data.id || i}>
+                            <p>{data?.name || nullValue || "---"}</p>
+                            <p>{data?.email || nullValue || "---"}</p>
+                            <p>{data?.phone || nullValue || "---"}</p>
+                            <p>{data?.url || nullValue || "---"}</p>
+                            <p>{data?.group || nullValue || "---"}</p>
+                            <p>{data?.address || nullValue || "---"}</p>
+                            <p>{data?.zip || nullValue || "---"}</p>
+                            <p>{data?.city || nullValue || "---"}</p>
+                            <p>{data?.state || nullValue || "---"}</p>
+                        </article>
                     );
                 })}
-            </tbody>
-        </table>
+            </section>
+        </section>
     );
 }
 

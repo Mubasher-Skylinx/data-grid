@@ -1,5 +1,6 @@
 import React from "react";
 import DataGridTable from "./DataGridTable";
+import "./dataGridContainer.css";
 
 function DataGridContainer(props) {
     const { columns, rows, nullValue } = props;

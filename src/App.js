@@ -18,7 +18,7 @@ function App() {
 
     // const headers = Object.keys(data[0]).filter();
     return (
-        <section>
+        <section className="app-container">
             <DataGridContainer
                 // columns={headers}
                 columns={headersToInclude}
