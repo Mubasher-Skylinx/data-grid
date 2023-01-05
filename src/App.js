@@ -15,6 +15,7 @@ import ColumnFilterableEditable from "./components/tanTables/ColumnFilterableEdi
 import ColumnExpandable from "./components/tanTables/ColumnExpandable";
 import RowDnD from "./components/tanTables/RowDnD";
 import RowSelectable from "./components/tanTables/RowSelectable";
+import SortingData from "./components/tanTables/SortingData";
 
 function App() {
     return (
@@ -34,7 +35,8 @@ function App() {
             {/* <ColumnFilterableEditable /> */}
             {/* <ColumnExpandable /> */}
             {/* <RowDnD /> */}
-            <RowSelectable />
+            {/* <RowSelectable /> */}
+            <SortingData />
         </section>
     );
 }
