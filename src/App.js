@@ -8,6 +8,10 @@ import GeoMappingTable3 from "./components/tanTables/GeoMappingTable3";
 import GeoMappingTable4 from "./components/tanTables/GeoMappingTable4";
 import ColumnToggeling from "./components/tanTables/ColumnToggeling";
 import ColumnGrouping from "./components/tanTables/ColumnGrouping";
+import ColumnDnD from "./components/tanTables/ColumnDnD";
+import ColumnEditable from "./components/tanTables/ColumnEditable";
+import ColumnFilterableEditable from "./components/tanTables/ColumnFilterableEditable";
+import ColumnFilterable from "./components/tanTables/ColumnFilterable";
 
 function App() {
     return (
@@ -21,6 +25,10 @@ function App() {
             {/* <GeoMappingTable4 /> */}
             {/* <ColumnToggeling /> */}
             {/* <ColumnGrouping /> */}
+            {/* <ColumnDnD /> */}
+            {/* <ColumnEditable /> */}
+            {/* <ColumnFilterable /> */}
+            <ColumnFilterableEditable />
         </section>
     );
 }
