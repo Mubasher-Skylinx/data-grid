@@ -1,41 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { faker } from "@faker-js/faker";
 
-import {
-    ColumnOrderState,
-    flexRender,
-    getCoreRowModel,
-    useReactTable,
-} from "@tanstack/react-table";
-import { makeData, Person } from "./makeData";
+import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { makeData } from "../../data/makeData";
 
 const defaultColumns = [
     {
         header: "Name",
-        footer: (props) => props.column.id,
         columns: [
             {
                 accessorKey: "firstName",
                 cell: (info) => info.getValue(),
-                footer: (props) => props.column.id,
             },
             {
                 accessorFn: (row) => row.lastName,
                 id: "lastName",
                 cell: (info) => info.getValue(),
                 header: () => <span>Last Name</span>,
-                footer: (props) => props.column.id,
             },
         ],
     },
     {
         header: "Info",
-        footer: (props) => props.column.id,
         columns: [
             {
                 accessorKey: "age",
                 header: () => "Age",
-                footer: (props) => props.column.id,
             },
             {
                 header: "More Info",
@@ -43,17 +33,14 @@ const defaultColumns = [
                     {
                         accessorKey: "visits",
                         header: () => <span>Visits</span>,
-                        footer: (props) => props.column.id,
                     },
                     {
                         accessorKey: "status",
                         header: "Status",
-                        footer: (props) => props.column.id,
                     },
                     {
                         accessorKey: "progress",
                         header: "Profile Progress",
-                        footer: (props) => props.column.id,
                     },
                 ],
             },
@@ -61,12 +48,12 @@ const defaultColumns = [
     },
 ];
 
-function App() {
-    const [data, setData] = React.useState(() => makeData(20));
-    const [columns] = React.useState(() => [...defaultColumns]);
+function ColumnToggeling() {
+    const [data, setData] = useState(() => makeData(20));
+    const [columns] = useState(() => [...defaultColumns]);
 
-    const [columnVisibility, setColumnVisibility] = React.useState({});
-    const [columnOrder, setColumnOrder] = React.useState < ColumnOrderState > [];
+    const [columnVisibility, setColumnVisibility] = useState({});
+    const [columnOrder, setColumnOrder] = useState([]);
 
     const rerender = () => setData(() => makeData(20));
 
@@ -84,10 +71,6 @@ function App() {
         debugHeaders: true,
         debugColumns: true,
     });
-
-    const randomizeColumns = () => {
-        table.setColumnOrder(faker.helpers.shuffle(table.getAllLeafColumns().map((d) => d.id)));
-    };
 
     return (
         <div className="p-2">
@@ -121,16 +104,7 @@ function App() {
                     );
                 })}
             </div>
-            <div className="h-4" />
-            <div className="flex flex-wrap gap-2">
-                <button onClick={() => rerender()} className="border p-1">
-                    Regenerate
-                </button>
-                <button onClick={() => randomizeColumns()} className="border p-1">
-                    Shuffle Columns
-                </button>
-            </div>
-            <div className="h-4" />
+
             <table>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (
@@ -148,6 +122,7 @@ function App() {
                         </tr>
                     ))}
                 </thead>
+
                 <tbody>
                     {table.getRowModel().rows.map((row) => (
                         <tr key={row.id}>
@@ -159,24 +134,10 @@ function App() {
                         </tr>
                     ))}
                 </tbody>
-                <tfoot>
-                    {table.getFooterGroups().map((footerGroup) => (
-                        <tr key={footerGroup.id}>
-                            {footerGroup.headers.map((header) => (
-                                <th key={header.id} colSpan={header.colSpan}>
-                                    {header.isPlaceholder
-                                        ? null
-                                        : flexRender(
-                                              header.column.columnDef.footer,
-                                              header.getContext()
-                                          )}
-                                </th>
-                            ))}
-                        </tr>
-                    ))}
-                </tfoot>
             </table>
-            <pre>{JSON.stringify(table.getState().columnOrder, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(table.getState().columnOrder, null, 2)}</pre> */}
         </div>
     );
 }
+
+export default ColumnToggeling;
