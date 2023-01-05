@@ -10,8 +10,11 @@ import ColumnToggeling from "./components/tanTables/ColumnToggeling";
 import ColumnGrouping from "./components/tanTables/ColumnGrouping";
 import ColumnDnD from "./components/tanTables/ColumnDnD";
 import ColumnEditable from "./components/tanTables/ColumnEditable";
-import ColumnFilterableEditable from "./components/tanTables/ColumnFilterableEditable";
 import ColumnFilterable from "./components/tanTables/ColumnFilterable";
+import ColumnFilterableEditable from "./components/tanTables/ColumnFilterableEditable";
+import ColumnExpandable from "./components/tanTables/ColumnExpandable";
+import RowDnD from "./components/tanTables/RowDnD";
+import RowSelectable from "./components/tanTables/RowSelectable";
 
 function App() {
     return (
@@ -28,7 +31,10 @@ function App() {
             {/* <ColumnDnD /> */}
             {/* <ColumnEditable /> */}
             {/* <ColumnFilterable /> */}
-            <ColumnFilterableEditable />
+            {/* <ColumnFilterableEditable /> */}
+            {/* <ColumnExpandable /> */}
+            {/* <RowDnD /> */}
+            <RowSelectable />
         </section>
     );
 }
