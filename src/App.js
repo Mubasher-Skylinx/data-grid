@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import CustomTable from "./components/customTable/CustomTable";
 import BasicExample from "./components/tanTables/BasicExample";
 import GeoMappingTable from "./components/tanTables/GeoMappingTable";
 import GeoMappingTable1 from "./components/tanTables/GeoMappingTable1";
@@ -17,10 +16,18 @@ import RowDnD from "./components/tanTables/RowDnD";
 import RowSelectable from "./components/tanTables/RowSelectable";
 import SortingData from "./components/tanTables/SortingData";
 
+import data from "./data/data";
+import EventExperiment from "./components/experiments/EventExperiments";
+import { filterHeaders } from "./utils/utils";
+import ColumnPagination from "./components/tanTables/ColumnPagination";
+
 function App() {
+    let headers = filterHeaders(Object.keys(data[0]));
+
     return (
         <section className="app-container">
-            {/* <CustomTable /> */}
+            {/* <EventExperiment data={data} columns={headers} /> */}
+
             {/* <BasicExample /> */}
             {/* <GeoMappingTable /> */}
             {/* <GeoMappingTable1 /> */}
@@ -31,12 +38,13 @@ function App() {
             {/* <ColumnGrouping /> */}
             {/* <ColumnDnD /> */}
             {/* <ColumnEditable /> */}
+            <ColumnPagination />
             {/* <ColumnFilterable /> */}
             {/* <ColumnFilterableEditable /> */}
             {/* <ColumnExpandable /> */}
             {/* <RowDnD /> */}
             {/* <RowSelectable /> */}
-            <SortingData />
+            {/* <SortingData /> */}
         </section>
     );
 }

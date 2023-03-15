@@ -108,6 +108,7 @@ export default function SortingData() {
                         </tr>
                     ))}
                 </thead>
+
                 <tbody>
                     {table
                         .getRowModel()

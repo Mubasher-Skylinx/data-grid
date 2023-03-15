@@ -127,6 +127,8 @@ export default function ColumnEditable() {
     const [data, setData] = useState(() => makeData(1000));
     const refreshData = () => setData(() => makeData(1000));
 
+    console.log(data);
+
     const [autoResetPageIndex, skipAutoResetPageIndex] = useSkipper();
 
     const table = useReactTable({

@@ -1,0 +1,36 @@
+export let fieldsToExclude = [
+    "_id",
+    "id",
+    "address",
+    "Address",
+    "city",
+    "City",
+    "color",
+    "Color",
+    "distanceFromUser",
+    "email",
+    "Email",
+    "Group",
+    "group",
+    "group_id",
+    "group_ids",
+    "hexcolor",
+    "history",
+    "location",
+    "Location",
+    "markerStyle",
+    "Name",
+    "name",
+    "Phone",
+    "phone",
+    "state",
+    "State",
+    "url",
+    "Url",
+    "zip",
+    "Zip",
+];
+
+export const filterHeaders = (headers) => {
+    return headers.filter((item) => !fieldsToExclude.includes(item));
+};
